@@ -17,7 +17,8 @@ namespace SimpleCMS.DataLayer.Models
         public string SiteName { get; set; }
         public string SiteDescription { get; set; }
         public int PagePostsCount { get; set; }
-
+        public bool ShowDescriptionInPost { get; set; }
+        
     }
     enum LanguageNames
     {
