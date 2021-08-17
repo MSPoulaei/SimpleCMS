@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCMS.DataLayer
 {
-    class GenericRepository<T> : IGenericRepository<T> where T : class
+   public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         SimpleCMSContext _context=null;
         public GenericRepository(SimpleCMSContext context)
@@ -76,7 +76,7 @@ namespace SimpleCMS.DataLayer
             }
         }
 
-        public void save()
+        public void Save()
         {
             _context.SaveChanges();
         }

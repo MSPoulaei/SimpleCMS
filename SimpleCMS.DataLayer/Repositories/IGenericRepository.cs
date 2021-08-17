@@ -14,7 +14,7 @@ namespace SimpleCMS.DataLayer
         bool Update(T item);
         bool Delete(T item);
         bool Delete(int Id);
-        void save();
+        void Save();
 
     }
 }
