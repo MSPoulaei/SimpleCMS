@@ -5,14 +5,14 @@ namespace SimpleCMS.DataLayer.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SimpleCMS.DataLayer.Context.SimpleCMSContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SimpleCMS.DataLayer.SimpleCMSContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(SimpleCMS.DataLayer.Context.SimpleCMSContext context)
+        protected override void Seed(SimpleCMS.DataLayer.SimpleCMSContext context)
         {
             //  This method will be called after migrating to the latest version.
 
