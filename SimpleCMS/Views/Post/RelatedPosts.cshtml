@@ -1,0 +1,11 @@
+﻿@model IEnumerable<SimpleCMS.DataLayer.Post>
+@foreach (var post in Model)
+{
+    <a href="/post/@post.PostId" class="d-block tm-mb-40">
+        <figure>
+            <img src="~/images/@post.ImageName" alt="@post.Title" class="mb-3 img-fluid">
+            <figcaption class="tm-color-primary">@post.Title</figcaption>
+        </figure>
+    </a>
+}
+
