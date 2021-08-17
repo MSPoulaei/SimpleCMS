@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\EntityConfigurations\SubCommentConfigurations.cs" />
+    <Compile Include="Context\EntityConfigurations\CommentConfigurations.cs" />
     <Compile Include="Context\EntityConfigurations\CategoryConfigurations.cs" />
     <Compile Include="Context\EntityConfigurations\SubCategoryConfigurations.cs" />
     <Compile Include="Context\EntityConfigurations\UserConfigurations.cs" />
@@ -59,6 +61,30 @@
     <Compile Include="Migrations\202108110746319_init.Designer.cs">
       <DependentUpon>202108110746319_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108151018577_Customized_Length.cs" />
+    <Compile Include="Migrations\202108151018577_Customized_Length.Designer.cs">
+      <DependentUpon>202108151018577_Customized_Length.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108151032358_many_to_many.cs" />
+    <Compile Include="Migrations\202108151032358_many_to_many.Designer.cs">
+      <DependentUpon>202108151032358_many_to_many.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108151035573_comment_fix.cs" />
+    <Compile Include="Migrations\202108151035573_comment_fix.Designer.cs">
+      <DependentUpon>202108151035573_comment_fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108151058372_SubCategoryId.cs" />
+    <Compile Include="Migrations\202108151058372_SubCategoryId.Designer.cs">
+      <DependentUpon>202108151058372_SubCategoryId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108160914373_add_tags_to_Post.cs" />
+    <Compile Include="Migrations\202108160914373_add_tags_to_Post.Designer.cs">
+      <DependentUpon>202108160914373_add_tags_to_Post.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108171025384_SubComment.cs" />
+    <Compile Include="Migrations\202108171025384_SubComment.Designer.cs">
+      <DependentUpon>202108171025384_SubComment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Author.cs" />
@@ -67,9 +93,15 @@
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\SubCategory.cs" />
+    <Compile Include="Models\SubComment.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IGenericRepository.cs" />
+    <Compile Include="Resources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
     <Compile Include="Services\GenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +112,28 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202108110746319_init.resx">
       <DependentUpon>202108110746319_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108151018577_Customized_Length.resx">
+      <DependentUpon>202108151018577_Customized_Length.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108151032358_many_to_many.resx">
+      <DependentUpon>202108151032358_many_to_many.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108151035573_comment_fix.resx">
+      <DependentUpon>202108151035573_comment_fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108151058372_SubCategoryId.resx">
+      <DependentUpon>202108151058372_SubCategoryId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108160914373_add_tags_to_Post.resx">
+      <DependentUpon>202108160914373_add_tags_to_Post.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108171025384_SubComment.resx">
+      <DependentUpon>202108171025384_SubComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
