@@ -6,13 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 using SimpleCMS.DataLayer.Context.EntityConfigurations;
 
-namespace SimpleCMS.DataLayer.Context
+namespace SimpleCMS.DataLayer
 {
-    class SimpleCMSContext:DbContext
+    public class SimpleCMSContext:DbContext
     {
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<SubComment> SubComments { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<User> Users { get; set; }
@@ -20,6 +22,9 @@ namespace SimpleCMS.DataLayer.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new PostConfigurations());
+            modelBuilder.Configurations.Add(new CategoryConfigurations());
+            modelBuilder.Configurations.Add(new CommentConfigurations());
+            modelBuilder.Configurations.Add(new SubCommentConfigurations());
             modelBuilder.Configurations.Add(new SubCategoryConfigurations());
             modelBuilder.Configurations.Add(new UserConfigurations());
             base.OnModelCreating(modelBuilder);
@@ -29,5 +34,6 @@ namespace SimpleCMS.DataLayer.Context
         {
 
         }
+
     }
 }
