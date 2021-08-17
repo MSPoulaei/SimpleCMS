@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCMS.DataLayer
 {
-    class Admin
+   public class Admin
     {
         public int AdminId { get; set; }
         public int UserId { get; set; }

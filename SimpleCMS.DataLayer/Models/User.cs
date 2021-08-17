@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCMS.DataLayer
 {
-    class User
+    public class User
     {
         public int UserId { get; set; }
         public string FirstName { get; set; }
@@ -24,5 +24,6 @@ namespace SimpleCMS.DataLayer
         {
             Comments = new List<Comment>();
         }
+        public string GetFullName() { return FirstName + " " + LastName; }
     }
 }

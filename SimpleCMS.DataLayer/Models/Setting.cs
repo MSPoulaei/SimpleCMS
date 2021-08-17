@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCMS.DataLayer.Models
 {
-    class Setting
+    public class Setting
     {
         public int ProfileId { get; set; }
         public bool IsActivated { get; set; }
@@ -21,7 +21,7 @@ namespace SimpleCMS.DataLayer.Models
         public bool ShowDescriptionInPost { get; set; }
         
     }
-    enum Language
+   public enum Language
     {
         [Display(Name ="فارسی")]
         Persian=1,

@@ -7,20 +7,18 @@ using System.Threading.Tasks;
 
 namespace SimpleCMS.DataLayer
 {
-    public class Comment
+    public class SubComment
     {
-        public int CommentId { get; set; }
+        public int SubCommentId { get; set; }
         public int UserId { get; set; }
         public int PostId { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
         public DateTime DateCreated { get; set; }
+        //[ForeignKey("MainComment")]
+        public int MainCommentId { get; set; }
+        public virtual Comment MainComment { get; set; }
         public virtual User User { get; set; }
         public virtual Post Post { get; set; }
-        public virtual IList<SubComment> SubComments { get; set; }
-        public Comment()
-        {
-            SubComments = new List<SubComment>();
-        }
     }
 }
