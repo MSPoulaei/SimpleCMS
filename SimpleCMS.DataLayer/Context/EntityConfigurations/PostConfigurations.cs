@@ -17,6 +17,10 @@ namespace SimpleCMS.DataLayer.Context.EntityConfigurations
             Property(p => p.Text)
                 .IsMaxLength()
                 .IsRequired();
+            Property(p => p.ImageName)
+                .HasMaxLength(50);
+            Property(p => p.Tags)
+                .HasMaxLength(250);
         }
     }
 }

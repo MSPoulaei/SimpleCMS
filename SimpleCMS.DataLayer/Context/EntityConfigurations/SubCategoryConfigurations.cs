@@ -15,7 +15,7 @@ namespace SimpleCMS.DataLayer.Context.EntityConfigurations
                 .HasMaxLength(50)
                 .IsRequired();
             HasRequired(sc => sc.MainCategory)
-                .WithMany(mc => (ICollection<SubCategory>)mc.SubCategories)
+                .WithMany(mc => mc.SubCategories)
                 .HasForeignKey(sc=>sc.MainCategoryId)
                 .WillCascadeOnDelete(false);
             
