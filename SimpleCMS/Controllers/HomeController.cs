@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SimpleCMS.DataLayer;
 
 namespace SimpleCMS.Controllers
 {
     public class HomeController : Controller
     {
+        SimpleCMSContext context;
+        IGenericRepository<Post> PostRepository;
+        public HomeController()
+        {
+            context = new SimpleCMSContext();
+            PostRepository = new GenericRepository<Post>(context);
+        }
         public ActionResult Index()
         {
-            return View();
+            return View(PostRepository.GetAll());
         }
 
         public ActionResult About()
