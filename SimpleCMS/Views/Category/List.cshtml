@@ -2,11 +2,11 @@
 @model List<SimpleCMS.DataLayer.Category>
 @foreach (var cat in Model)
 {
-    <li><a href="#" class="tm-color-primary">@cat.Name</a></li>
+    <li><a href="/cat/@cat.CategoryId" class="tm-color-primary">@cat.Name</a></li>
     <ul>
         @foreach (var subcat in cat.SubCategories)
         {
-            <li><a href="#" class="tm-color-primary">@subcat.Name</a></li>
+            <li class="ml-5"><a href="/subcat/@subcat.SubCategoryId" class="tm-color-primary">@subcat.Name</a></li>
         }
     </ul>
 }
