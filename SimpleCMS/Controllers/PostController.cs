@@ -30,7 +30,7 @@ namespace SimpleCMS.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
             }
-            //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("fa-IR");
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("fa-IR");
             switch (System.Globalization.CultureInfo.CurrentCulture.Name)
             {
                 case "fa-IR"://farsi
@@ -43,12 +43,26 @@ namespace SimpleCMS.Controllers
 
             }
             ViewBag.ShowDescriptionInPost = true;
+            post.VisitsCount += 1;
+            PostRepository.Update(post);
+            PostRepository.Save();
             return View(post);
         }
         [ChildActionOnly]
         public ActionResult RelatedPosts()
         {
             return PartialView(PostRepository.GetAll());
+        }
+        [Route("Search")]
+        public ActionResult Search(string q)
+        {
+            return View("~/Views/Shared/Index.cshtml", context.Posts.Where(p =>
+                p.Title.Contains(q) ||
+                p.Description.Contains(q) ||
+                p.Author.User.FirstName.Contains(q) ||
+                p.Author.User.LastName.Contains(q) ||
+                p.Tags.Contains(q)
+            ).Select(p=>p));
         }
     }
 }
