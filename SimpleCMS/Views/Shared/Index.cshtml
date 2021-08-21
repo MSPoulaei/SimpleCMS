@@ -28,11 +28,11 @@
                     {
                         if (!first)
                         {
-                            <span>, @subcat.Name</span>
+                            <span>, <a href="/subcat/@subcat.SubCategoryId">@subcat.Name</a></span>
                         }
                         else
                         {
-                            <span>@subcat.Name</span>
+                            <span><a href="/subcat/@subcat.SubCategoryId">@subcat.Name</a></span>
                             first = false;
                         }
                     }
@@ -43,8 +43,16 @@
         </div>
         <hr>
         <div class="d-flex justify-content-between">
-            <span>@post.Comments.Count comments</span>
-            <span>by @post.Author.User.FirstName</span>
+            @*@{
+                int sub_comment_counts = 0;
+                foreach (var comment in post.Comments)
+                {
+                    sub_comment_counts += comment.SubComments.Count;
+                }
+            }
+            <span>@(post.Comments.Count + sub_comment_counts) comments</span>*@
+            <span>@(post.Comments.Count +post.Comments.SelectMany(i => i.SubComments).Count()) comments</span>
+            <span>by <a href="/author/@post.Author.AuthorId">@post.Author.User.FirstName</a></span>
         </div>
     </article>
 }
