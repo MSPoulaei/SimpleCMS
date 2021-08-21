@@ -8,7 +8,7 @@ namespace SimpleCMS
 {
     public static class DateTimeUtilities
     {
-       public static string ToShamsi(this DateTime dateTime)
+        public static string ToShamsi(this DateTime dateTime)
         {
             PersianCalendar persianCalendar = new PersianCalendar();
             return persianCalendar.GetYear(dateTime) + "/"
@@ -26,9 +26,18 @@ namespace SimpleCMS
         public static string ToMiladiText(this DateTime dateTime)
         {
             //June 16, 2020
-            return dateTime.ToString("MMMM")+ " "
-                + dateTime.Day +", "
-                +dateTime.Year;
+            return dateTime.ToString("MMMM") + " "
+                + dateTime.Day + ", "
+                + dateTime.Year;
+        }
+        public static string ToShamsiLongText(this DateTime dateTime)
+        {
+            //June 16, 2020
+            return dateTime.ToString("yyyy/MM/dd hh:mm tt", new CultureInfo("fa-IR"));
+           //"  " +
+           //        dateTime.Hour + ":" +
+           //        dateTime.Minute + " " +
+           //        dateTime.ToString("tt", new CultureInfo("fa-IR"));
         }
 
         public static string GetDayOfWeekPersianName(this DateTime date)
