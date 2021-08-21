@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace SimpleCMS.DataLayer
 {
@@ -13,6 +15,8 @@ namespace SimpleCMS.DataLayer
         public int AuthorId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        [AllowHtml]
+        [DataType(DataType.MultilineText)]
         public string Text { get; set; }
         public int VisitsCount { get; set; }
         public string ImageName { get; set; }
