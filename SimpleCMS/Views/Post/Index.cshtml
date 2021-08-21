@@ -3,6 +3,13 @@
 @{
     ViewBag.Title = "Index";
 }
+@section CSS{
+    <style>
+        .mb-8px {
+            margin-bottom: 8px;
+        }
+    </style>
+}
 
 <div class="row tm-row">
     <div class="col-12">
@@ -17,7 +24,7 @@
             <div class="mb-4">
                 <h2 class="pt-2 tm-color-primary tm-post-title">@Model.Title</h2>
                 @*<p class="tm-mb-40">June 16, 2020 posted by Admin Nat</p>*@
-                <p style="margin-bottom: 8px;">
+                <p class="mb-8px">
                     @{var first_subcat = true;
                         foreach (var subcat in @Model.SubCategories)
                         {
@@ -33,7 +40,8 @@
                         }
                     }
                 </p>
-                <p class="tm-mb-40">@( (ViewBag.PersianCalendar) ? Model.DateCreated.ToShamsiText(): Model.DateCreated.ToMiladiText() ) posted by @Model.Author.User.GetFullName()</p>
+                <p class="mb-8px">@( (ViewBag.PersianCalendar) ? Model.DateCreated.ToShamsiText(): Model.DateCreated.ToMiladiText() ) posted by <a href="/author/@Model.Author.AuthorId">@Model.Author.User.GetFullName()</a></p>
+                <p class="tm-mb-40">Visits: @Model.VisitsCount</p>
                 @if (ViewBag.ShowDescriptionInPost)
                 {
                     <p>
@@ -41,7 +49,7 @@
                     </p>
                 }
                 <p>
-                    @Model.Text
+                    @Html.Raw(Model.Text)
                 </p>
                 @*<span class="d-block text-right tm-color-primary">Creative . Design . Business</span>*@
                 <span class="d-block text-right tm-color-primary">
@@ -50,11 +58,11 @@
                         {
                             if (!first_tag)
                             {
-                                <span>, @tag</span>
+                                <span>, <a href="/search?q=@tag">@tag</a></span>
                             }
                             else
                             {
-                                <span>@tag</span>
+                                <span><a href="/search?q=@tag">@tag</a></span>
                                 first_tag = false;
                             }
                         }
