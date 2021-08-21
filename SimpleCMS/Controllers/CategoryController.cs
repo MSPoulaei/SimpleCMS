@@ -10,9 +10,41 @@ namespace SimpleCMS.Controllers
     {
         SimpleCMSContext db = new SimpleCMSContext();
         // GET: Category
-        public ActionResult Index()
+        [Route("cat/{id}")]
+        public ActionResult Index(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            var subCat_list = db.Categories.Find(id).SubCategories;
+            var posts = new HashSet<Post>();
+            foreach (var subCat in subCat_list)
+            {
+                foreach (var post in subCat.Posts)
+                {
+                    posts.Add(post);
+                }
+            }
+            return View("Index",posts);
+        }
+        [Route("subcat/{id}")]
+        public ActionResult Subcat(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+            }
+            var subCat_list = db.SubCategories;
+            var posts = new HashSet<Post>();
+            foreach (var subCat in subCat_list)
+            {
+                foreach (var post in subCat.Posts)
+                {
+                    posts.Add(post);
+                }
+            }
+            return View("Index",posts);
         }
         public ActionResult List()
         {
