@@ -1,0 +1,44 @@
+﻿@model IEnumerable<SimpleCMS.DataLayer.Comment>
+
+@foreach (var mainCommnet in Model)
+{
+<div class="maincomment-container-@mainCommnet.CommentId">
+    <div class="tm-comment tm-mb-45">
+        <figure class="tm-comment-figure">
+            <img width="110" height="110" src="/images/users/@( (mainCommnet.IsAnonymous) ? "anonymous.jpg": mainCommnet.User.AvatarImageName)" alt="Image" class="mb-2 rounded-circle img-thumbnail">
+            <figcaption class="tm-color-primary text-center">@( (mainCommnet.IsAnonymous) ? mainCommnet.Name: mainCommnet.User.GetFullName())</figcaption>
+        </figure>
+        <div>
+            <h3>@mainCommnet.Title</h3>
+            <p>
+                @mainCommnet.Text
+            </p>
+            <div class="d-flex justify-content-between">
+                <a href="javascript:void(0);" class="tm-color-primary reply" onclick="Reply(@mainCommnet.CommentId)">REPLY</a>
+                <span class="tm-color-primary">@( (ViewBag.PersianCalendar) ? mainCommnet.DateCreated.ToShamsiText(): mainCommnet.DateCreated.ToMiladiText() )</span>
+            </div>
+        </div>
+    </div>
+</div>
+    foreach (var subComment in mainCommnet.SubComments)
+    {
+        <div class="tm-comment-reply tm-mb-45">
+            <hr>
+            <div class="tm-comment">
+                <figure class="tm-comment-figure">
+                    <img width="110" height="110" src="/images/users/@( (subComment.IsAnonymous) ? "anonymous.jpg": subComment.User.AvatarImageName)" alt="Image" class="mb-2 rounded-circle img-thumbnail">
+                    <figcaption class="tm-color-primary text-center">@( (subComment.IsAnonymous) ? subComment.Name: subComment.User.GetFullName())</figcaption>
+                </figure>
+                <div>
+                    <h3>@subComment.Title</h3>
+                    <p>
+                        @subComment.Text
+                    </p>
+                </div>
+            </div>
+            <span class="d-block text-right tm-color-primary">@( (ViewBag.PersianCalendar) ? subComment.DateCreated.ToShamsiText(): subComment.DateCreated.ToMiladiText())</span>
+
+
+        </div>
+    }
+}
