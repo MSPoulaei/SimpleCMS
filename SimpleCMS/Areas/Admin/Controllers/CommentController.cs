@@ -10,6 +10,7 @@ using SimpleCMS.DataLayer;
 
 namespace SimpleCMS.Areas.Admin.Controllers
 {
+    [Authorize]
     public class CommentController : Controller
     {
         private SimpleCMSContext db = new SimpleCMSContext();
