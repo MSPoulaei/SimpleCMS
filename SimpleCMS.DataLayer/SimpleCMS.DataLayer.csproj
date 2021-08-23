@@ -91,6 +91,10 @@
     <Compile Include="Migrations\202108171025384_SubComment.Designer.cs">
       <DependentUpon>202108171025384_SubComment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108221451353_Comment_anonymous_sender.cs" />
+    <Compile Include="Migrations\202108221451353_Comment_anonymous_sender.Designer.cs">
+      <DependentUpon>202108221451353_Comment_anonymous_sender.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Author.cs" />
@@ -136,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108171025384_SubComment.resx">
       <DependentUpon>202108171025384_SubComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108221451353_Comment_anonymous_sender.resx">
+      <DependentUpon>202108221451353_Comment_anonymous_sender.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
