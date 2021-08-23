@@ -17,6 +17,10 @@ namespace SimpleCMS.DataLayer.Context.EntityConfigurations
             Property(cm => cm.Text)
                 .HasMaxLength(250)
                 .IsRequired();
+            Property(cm => cm.Name)
+                .HasMaxLength(150);
+            Property(cm => cm.Email)
+                .HasMaxLength(150);
 
         }
     }

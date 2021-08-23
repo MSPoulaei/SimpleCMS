@@ -21,7 +21,10 @@ namespace SimpleCMS.DataLayer.Context.EntityConfigurations
                 .WithMany(mc => mc.SubComments)
                 .HasForeignKey(sc => sc.MainCommentId)
                 .WillCascadeOnDelete(false);
-
+            Property(cm => cm.Name)
+                .HasMaxLength(150);
+            Property(cm => cm.Email)
+                .HasMaxLength(150);
         }
     }
 }
