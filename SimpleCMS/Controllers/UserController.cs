@@ -41,5 +41,10 @@ namespace SimpleCMS.Controllers
             }
             return View(newUser);
         }
+        public ActionResult SignOut()
+        {
+            FormsAuthentication.SignOut();
+            return Redirect("/");
+        }
     }
 }
